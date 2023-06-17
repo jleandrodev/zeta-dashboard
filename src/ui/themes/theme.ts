@@ -3,9 +3,9 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     primary: {
-      light: "#777",
-      main: "#222",
-      dark: "#555",
+      light: "#1B203E",
+      main: "#1B203E",
+      dark: "#1B203E",
     },
     secondary: {
       light: "#2bfff2",
@@ -13,8 +13,8 @@ const theme = createTheme({
       dark: "#1dd6cb",
     },
     text: {
-      primary: "#707070",
-      secondary: "#9B9B9B",
+      primary: "#F0F0F0",
+      secondary: "#D7D9DD",
     },
     error: {
       main: "#FC3C00",
@@ -56,8 +56,8 @@ const theme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          boxShadow: "0px 0px 39px rgba(0, 0, 0, 0.05)",
-          backgroundColor: "#333",
+          boxShadow: "0px 0px 39px rgba(0, 0, 0, 0.1)",
+          backgroundColor: "#1B203E",
         },
       },
     },

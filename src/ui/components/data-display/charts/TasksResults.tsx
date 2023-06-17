@@ -1,92 +1,24 @@
-import React, { PureComponent } from "react";
-import {
-  ComposedChart,
-  Line,
-  Area,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  Scatter,
-  ResponsiveContainer,
-} from "recharts";
-
+import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
 const data = [
-  {
-    name: "Page A",
-    cliques: 590,
-    impressoes: 2250,
-    pv: 800,
-    cnt: 490,
-  },
-  {
-    name: "Page B",
-    cliques: 868,
-    impressoes: 2150,
-    pv: 967,
-    cnt: "otimizar robots",
-  },
-  {
-    name: "Page C",
-    cliques: 1397,
-    impressoes: 2050,
-    pv: 1098,
-    cnt: "Tarefa 1",
-  },
-  {
-    name: "Page D",
-    cliques: 1480,
-    impressoes: 2250,
-    pv: 1200,
-    cnt: "tarefa",
-  },
-  {
-    name: "Page E",
-    cliques: 1520,
-    impressoes: 2850,
-    pv: 1108,
-    cnt: 460,
-  },
-  {
-    name: "Page F",
-    cliques: 1400,
-    impressoes: 2450,
-    pv: "tarefa",
-    cnt: 0,
-  },
+  { name: "Page A", uv: 400, pv: 2400, amt: 2400 },
+  { name: "Page B", uv: 500, pv: 2800, amt: 3400 },
+  { name: "Page B", uv: 300, pv: 2900, amt: 3300 },
 ];
 
-export default class TasksResults extends PureComponent {
-  static demoUrl = "https://codesandbox.io/s/simple-composed-chart-h9zif";
+const TasksResults = () => {
+  return (
+    <LineChart
+      width={600}
+      height={300}
+      data={data}
+      margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
+    >
+      <Line type="monotone" dataKey="uv" stroke="#fff" />
+      <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+      <XAxis dataKey="name" />
+      <YAxis />
+    </LineChart>
+  );
+};
 
-  render() {
-    return (
-      <ResponsiveContainer width="100%" height="100%">
-        <ComposedChart
-          width={500}
-          height={400}
-          data={data}
-          margin={{
-            top: 20,
-            right: 20,
-            bottom: 20,
-            left: 20,
-          }}
-        >
-          <CartesianGrid stroke="#f5f5f5" />
-          <XAxis dataKey="name" scale="band" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Area type="monotone" dataKey="amt" fill="#8884d8" stroke="#8884d8" />
-          <Bar dataKey="pv" barSize={20} fill="#413ea0" />
-          <Line type="monotone" dataKey="cliques" stroke="#ff7300" />
-          <Line type="monotone" dataKey="impressoes" stroke="#8884d8" />
-          <Scatter dataKey="cnt" fill="red" />
-        </ComposedChart>
-      </ResponsiveContainer>
-    );
-  }
-}
+export default TasksResults;
